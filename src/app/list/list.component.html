@@ -1,7 +1,7 @@
 <section class="list-section">
   <ul>
     <li *ngFor="let name of algorithms">
-      {{name}}
+      <app-algorithm [name]="name"></app-algorithm>
     </li>
   </ul>
 </section>
