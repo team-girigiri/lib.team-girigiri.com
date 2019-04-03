@@ -9,6 +9,7 @@ import { AlgorithmDetailComponent } from './algorithm-detail/algorithm-detail.co
 import { ListComponent } from './list/list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { GroupComponent } from './group/group.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     AlgorithmDetailComponent,
     ListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,

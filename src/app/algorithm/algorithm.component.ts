@@ -6,11 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./algorithm.component.less']
 })
 export class AlgorithmComponent implements OnInit {
+  @Input('group') group: string;
   @Input('name') name: string;
+  public path: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.path = `${this.group}/${this.name}`;
   }
-
 }

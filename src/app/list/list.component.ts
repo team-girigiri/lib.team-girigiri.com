@@ -8,31 +8,30 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
-  public algorithms = [];
+  public groups = [];
 
   constructor(
     private http: HttpClient,
     private sanitizer: DomSanitizer
   ) {
-    this.getProgramUrlsSuccess = this.getProgramUrlsSuccess.bind(this);
+    this.getGroupsSuccess = this.getGroupsSuccess.bind(this);
     this.error = this.error.bind(this);
   }
 
   ngOnInit() {
-    this.getProgramUrls();
+    this.getGroups();
   }
 
-  getProgramUrls() {
+  getGroups() {
     const apiUrl = 'https://api.github.com/repos/xuzijian629/library/contents';
     let get = this.http.get(apiUrl);
-    get.subscribe(this.getProgramUrlsSuccess, this.error);
+    get.subscribe(this.getGroupsSuccess, this.error);
   }
 
-  getProgramUrlsSuccess(response) {
+  getGroupsSuccess(response) {
     for (let file of response) {
-      if (file['name'].match(/.cpp$/)) {
-        let name = file['name'].match(/(.*).cpp$/)[1]
-        this.algorithms.push(name);
+      if (!file['download_url']) {
+        this.groups.push(file['name']);
       }
     }
   }

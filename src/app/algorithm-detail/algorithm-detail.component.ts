@@ -9,6 +9,7 @@ import { DomSanitizer, SafeScript, SafeValue } from '@angular/platform-browser';
   styleUrls: ['./algorithm-detail.component.less']
 })
 export class AlgorithmDetailComponent implements OnInit {
+  private group: string;
   private name: string;
   public code: SafeValue;
 
@@ -20,6 +21,7 @@ export class AlgorithmDetailComponent implements OnInit {
     this.showDetailSuccess = this.showDetailSuccess.bind(this);
     this.error = this.error.bind(this);
     route.params.subscribe(params => {
+      this.group = params['group'];
       this.name = params['algorithm'];
       this.showDetail();
     });
@@ -29,8 +31,8 @@ export class AlgorithmDetailComponent implements OnInit {
   }
 
   showDetail() {
-    const urlPrefix = 'https://raw.githubusercontent.com/xuzijian629/library/master/';
-    let get = this.http.get(urlPrefix + this.name + '.cpp', { responseType: 'text' });
+    const url = `https://raw.githubusercontent.com/xuzijian629/library/master/${this.group}/${this.name}.cpp`;
+    let get = this.http.get(url, { responseType: 'text' });
     get.subscribe(this.showDetailSuccess, this.error);
   }
 

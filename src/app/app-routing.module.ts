@@ -6,7 +6,7 @@ import { AlgorithmDetailComponent } from './algorithm-detail/algorithm-detail.co
 
 const routes: Routes = [
   {
-    path: ':algorithm',
+    path: ':group/:algorithm',
     component: AlgorithmDetailComponent
   },
   {
