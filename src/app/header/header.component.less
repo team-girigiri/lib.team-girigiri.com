@@ -1,12 +1,28 @@
+@import '../../styles.less';
+
 .header {
-    background-color: #FFFFFF;
+    background-color: @black;
+    height: 60px;
+    // to align image middle
     .profile {
-        height: 48px;
-        border-radius: 48px;
+        height: 32px;
+        border-radius: 32px;
+        vertical-align: middle;
+        float: left;
+        margin: 14px;
     }
     .title {
+        color: @white;
         display: inline-block;
-        font-size: 48px;
+        font-size: @xlarge;
+        font-weight: 100;
+        line-height: 60px;
         margin: 0;
+    }
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+
+@media screen and (max-width: @mobile-width) {
+    .header {
     }
 }

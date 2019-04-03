@@ -1,6 +1,8 @@
-<header class='header'>
-  <img class="profile" [src]="profilePictureUrl" *ngIf="profilePictureLoaded">
-  <p class="title">
-    Joeのライブラリ置き場
-  </p>
+<header class="header">
+  <a routerLink="/">
+    <img class="profile" [src]="profilePictureUrl" *ngIf="profilePictureLoaded">
+    <p class="title">
+      Joeのライブラリ置き場
+    </p>
+  </a>
 </header>
