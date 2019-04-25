@@ -6,5 +6,12 @@
         li {
             display: block;
         }
+        li:not(:last-child) {
+            .border {
+                display: block;
+                margin: 0 @small;
+                border-bottom: 1px solid @gray-darken2;
+            }
+        }
     }
 }
