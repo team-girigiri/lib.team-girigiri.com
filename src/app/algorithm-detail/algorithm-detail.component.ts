@@ -38,6 +38,7 @@ export class AlgorithmDetailComponent implements OnInit {
 
   showDetailSuccess(response) {
     this.code = this.sanitizer.sanitize(SecurityContext.NONE, response);
+    setTimeout(PR.prettyPrint, 100);
   }
 
   error(error) {
