@@ -10,6 +10,7 @@ import { ListComponent } from './list/list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GroupComponent } from './group/group.component';
+import { TitlePipe } from './title.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GroupComponent } from './group/group.component';
     ListComponent,
     HeaderComponent,
     FooterComponent,
-    GroupComponent
+    GroupComponent,
+    TitlePipe
   ],
   imports: [
     BrowserModule,

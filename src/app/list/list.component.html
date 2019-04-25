@@ -1,6 +1,9 @@
 <section class="list-section">
   <ul>
     <li *ngFor="let group of groups">
+      <div class="name">
+        {{group | title}}
+      </div>
       <app-group [group]="group"></app-group>
     </li>
   </ul>
