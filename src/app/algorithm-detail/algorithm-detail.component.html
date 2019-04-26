@@ -1,1 +1,10 @@
-<pre class="prettyprint">{{code}}</pre>
+<section class="algorithm-detail">
+    <div class="name">
+        <a routerLink="/">{{group | title}}</a> > &nbsp; {{name | title}}
+    </div>
+    <div class="comment" [innerHTML]="comment"></div>
+    <div class="comment">
+        <h2>code</h2>
+        <pre class="prettyprint">{{code}}</pre>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+@import '../../styles.less';
+
+.algorithm-detail {
+    margin: @xlarge auto;
+    max-width: 80%;
+    background: @white;
+    border: 5px solid @gray-darken;
+    border-radius: 10px;
+
+    .name, .name > a {
+        padding: 5px 10px 10px 10px;
+        background: @gray-darken;
+        color: @white;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    .comment {
+        padding: 10px 20px 10px 20px;
+        font-size: @small;
+        font-weight: 200;
+        p {
+            margin: 3px 0;
+        }
+
+        h2, h3, h4 {
+            font-size: @normal;
+            margin: 8px 0 3px;
+            font-weight: 500;
+        }
+
+        pre {
+            margin-top: -1px;
+            border: none;
+        }
+    }
+}
