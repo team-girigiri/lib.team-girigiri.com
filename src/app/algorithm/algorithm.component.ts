@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, SecurityContext } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import * as marked from 'marked';
 
 @Component({
   selector: 'app-algorithm',
   templateUrl: './algorithm.component.html',
-  styleUrls: ['./algorithm.component.less']
+  styleUrls: ['./algorithm.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AlgorithmComponent implements OnInit {
   @Input('group') group: string;

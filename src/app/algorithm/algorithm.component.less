@@ -3,12 +3,28 @@
 .algorithm {
     .title {
         display: inline-block;
-        padding: 5px 10px 0 10px;
+        padding: 15px 20px 0 20px;
         color: @gray-darken;
-        font-weight: 200;
+        font-size: @large;
+        font-weight: 400;
         text-decoration: underline;
         &:hover {
             cursor: pointer;
+        }
+    }
+
+    .comment {
+        padding: 0 20px 10px 20px;
+        font-size: @small;
+        font-weight: 200;
+        p {
+            margin: 3px 0;
+        }
+
+        h2, h3, h4 {
+            font-size: @normal;
+            margin: 3px 0;
+            font-weight: 500;
         }
     }
 }
