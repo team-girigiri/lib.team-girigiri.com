@@ -1,7 +1,7 @@
 <section class="group-section">
   <ul>
     <li *ngFor="let algorithm of algorithms">
-      <app-algorithm [group]="group" [name]="algorithm"></app-algorithm>
+      <app-algorithm *ngIf="status == 2" [group]="group" [name]="algorithm" [data]="data[algorithm]"></app-algorithm>
       <span class="border"></span>
     </li>
   </ul>

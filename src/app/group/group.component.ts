@@ -10,23 +10,33 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class GroupComponent implements OnInit {
   @Input() group: string;
   public algorithms = [];
+  public data: any;
+  public status = 0;
 
   constructor(
     private http: HttpClient,
     private sanitizer: DomSanitizer
   ) {
     this.getProgramUrlsSuccess = this.getProgramUrlsSuccess.bind(this);
+    this.getProgramCommentsSuccess = this.getProgramCommentsSuccess.bind(this);
     this.error = this.error.bind(this);
   }
 
   ngOnInit() {
     this.getProgramUrls();
+    this.getProgramComments();
   }
 
   getProgramUrls() {
     const apiUrl = `https://api.github.com/repos/xuzijian629/library/contents/${this.group}?ref=master`;
     let get = this.http.get(apiUrl);
     get.subscribe(this.getProgramUrlsSuccess, this.error);
+  }
+
+  getProgramComments() {
+    const url = `https://raw.githubusercontent.com/xuzijian629/library/master/${this.group}/readme.md`;
+    let get = this.http.get(url, { responseType: 'text' });
+    get.subscribe(this.getProgramCommentsSuccess, this.error);
   }
 
   getProgramUrlsSuccess(response) {
@@ -36,9 +46,38 @@ export class GroupComponent implements OnInit {
         this.algorithms.push(name);
       }
     }
+    this.status++;
+  }
+
+  getProgramCommentsSuccess(response) {
+    this.data = this.parseProgramComments(response);
+    this.status++;
   }
 
   error(error) {
     console.log(error);
+  }
+
+  parseProgramComments(s: string) {
+    let ret = {};
+    let tmp = "";
+    let title = "";
+    for (let line of s.split('\n')) {
+      if (line.length == 0) continue;
+      let match = line.match(/^# (\S+)$/);
+      if (match) {
+        if (title.length) {
+          ret[title] = tmp;
+          tmp = "";
+        }
+        title = match[1];
+      } else {
+        tmp += line + '\n';
+      }
+    }
+    if (title.length) {
+      ret[title] = tmp;
+    }
+    return ret;
   }
 }
