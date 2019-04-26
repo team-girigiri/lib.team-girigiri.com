@@ -8,8 +8,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-  public profilePictureLoaded: boolean = true;
-  public profilePictureUrl: SafeResourceUrl;
+  public status = 0;
+  public profile = {};
 
   constructor(
     private http: HttpClient,
@@ -20,18 +20,35 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getProfilePicture();
+    this.getProfilePicture('xuzijian629');
+    this.getProfilePicture('knshnb');
+    this.getProfilePicture('oginging');
   }
 
-  getProfilePicture() {
-    const url = 'https://api.github.com/users/xuzijian629';
+  getProfilePicture(username: string) {
+    const url = `https://api.github.com/users/${username}`;
     let get = this.http.get(url);
     get.subscribe(this.getProfilePictureSuccess, this.error);
   }
 
   getProfilePictureSuccess(response: Response) {
-    this.profilePictureUrl = this.sanitizer.bypassSecurityTrustUrl(response['avatar_url']);
-    this.profilePictureLoaded = true;
+    if (response['login'] == "xuzijian629") {
+      this.profile["xuzijian629"] = {
+        url: this.sanitizer.bypassSecurityTrustUrl(response['avatar_url']),
+        twitter: 'https://twitter.com/xuzijian629'
+      };
+    } else if (response['login'] == "knshnb") {
+      this.profile["knshnb"] = {
+        url: this.sanitizer.bypassSecurityTrustUrl(response['avatar_url']),
+        twitter: 'https://twitter.com/knshnb'
+      };
+    } else if (response['login'] == "oginging") {
+      this.profile["oginging"] = {
+        url: this.sanitizer.bypassSecurityTrustUrl(response['avatar_url']),
+        twitter: 'https://twitter.com/mgingin142857'
+      };
+    }
+    this.status++;
   }
 
   error(error) {

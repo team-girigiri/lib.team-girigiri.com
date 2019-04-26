@@ -1,8 +1,12 @@
 <header class="header">
   <a routerLink="/">
-    <img class="profile" [src]="profilePictureUrl" *ngIf="profilePictureLoaded">
     <p class="title">
       Girigiriのライブラリ置き場
     </p>
   </a>
+  <div *ngIf="status == 3" class="profile">
+    <a target="_blank" [href]="profile['xuzijian629'].twitter"><img [src]="profile['xuzijian629'].url"></a>
+    <a target="_blank" [href]="profile['knshnb'].twitter"><img [src]="profile['knshnb'].url"></a>
+    <a target="_blank" [href]="profile['oginging'].twitter"><img [src]="profile['oginging'].url"></a>
+  </div>
 </header>

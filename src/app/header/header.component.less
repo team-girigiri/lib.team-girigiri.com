@@ -3,21 +3,25 @@
 .header {
     background-color: @black;
     height: 60px;
-    // to align image middle
-    .profile {
-        height: 32px;
-        border-radius: 32px;
-        vertical-align: middle;
-        float: left;
-        margin: 14px;
-    }
+    width: 100vw;
     .title {
         color: @white;
         display: inline-block;
         font-size: @xlarge;
         font-weight: 100;
         line-height: 60px;
-        margin: 0;
+        margin: 0 0 0 @large;
+    }
+    .profile {
+        float: right;
+        // to align image middle
+        img {
+            height: 32px;
+            border-radius: 32px;
+            vertical-align: middle;
+            float: left;
+            margin: 14px 14px 14px 0;
+        }
     }
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
 }
