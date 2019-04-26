@@ -62,6 +62,7 @@ export class GroupComponent implements OnInit {
     let ret = {};
     let tmp = "";
     let title = "";
+    let ok = true;
     for (let line of s.split('\n')) {
       if (line.length == 0) continue;
       let match = line.match(/^# (\S+)$/);
@@ -69,9 +70,14 @@ export class GroupComponent implements OnInit {
         if (title.length) {
           ret[title] = tmp;
           tmp = "";
+          ok = true;
         }
         title = match[1];
-      } else {
+      } else if (ok) {
+        if (line[0] == '#') {
+          ok = false;
+          continue;
+        }
         tmp += line + '\n';
       }
     }
