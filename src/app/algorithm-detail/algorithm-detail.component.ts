@@ -1,7 +1,7 @@
 import { Component, OnInit, SecurityContext, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeScript, SafeValue } from '@angular/platform-browser';
+import { DomSanitizer, SafeScript, SafeValue, SafeHtml } from '@angular/platform-browser';
 import * as marked from 'marked';
 
 @Component({
