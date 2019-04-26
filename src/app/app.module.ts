@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GroupComponent } from './group/group.component';
 import { TitlePipe } from './title.pipe';
+import { MarkdownPipe } from './markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TitlePipe } from './title.pipe';
     HeaderComponent,
     FooterComponent,
     GroupComponent,
-    TitlePipe
+    TitlePipe,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,

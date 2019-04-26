@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeValue } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-group',
@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class GroupComponent implements OnInit {
   @Input() group: string;
   public algorithms = [];
-  public data: any;
+  public data: {[index: string]: string};
   public status = 0;
 
   constructor(
