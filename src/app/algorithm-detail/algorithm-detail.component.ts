@@ -37,13 +37,13 @@ export class AlgorithmDetailComponent implements OnInit {
   }
 
   showDetail() {
-    const url = `https://raw.githubusercontent.com/xuzijian629/library/master/${this.group}/${this.name}.cpp`;
+    const url = `https://raw.githubusercontent.com/team-girigiri/library/master/${this.group}/${this.name}.cpp`;
     let get = this.http.get(url, { responseType: 'text' });
     get.subscribe(this.showDetailSuccess, this.error);
   }
 
   getProgramComments() {
-    const url = `https://raw.githubusercontent.com/xuzijian629/library/master/${this.group}/readme.md`;
+    const url = `https://raw.githubusercontent.com/team-girigiri/library/master/${this.group}/readme.md`;
     let get = this.http.get(url, { responseType: 'text' });
     get.subscribe(this.getProgramCommentsSuccess, this.error);
   }

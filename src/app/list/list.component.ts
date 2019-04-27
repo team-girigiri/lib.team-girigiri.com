@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
   }
 
   getGroups() {
-    const apiUrl = 'https://api.github.com/repos/xuzijian629/library/contents';
+    const apiUrl = 'https://api.github.com/repos/team-girigiri/library/contents';
     let get = this.http.get(apiUrl);
     get.subscribe(this.getGroupsSuccess, this.error);
   }

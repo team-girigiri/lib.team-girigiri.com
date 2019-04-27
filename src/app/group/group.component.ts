@@ -28,13 +28,13 @@ export class GroupComponent implements OnInit {
   }
 
   getProgramUrls() {
-    const apiUrl = `https://api.github.com/repos/xuzijian629/library/contents/${this.group}?ref=master`;
+    const apiUrl = `https://api.github.com/repos/team-girigiri/library/contents/${this.group}?ref=master`;
     let get = this.http.get(apiUrl);
     get.subscribe(this.getProgramUrlsSuccess, this.error);
   }
 
   getProgramComments() {
-    const url = `https://raw.githubusercontent.com/xuzijian629/library/master/${this.group}/readme.md`;
+    const url = `https://raw.githubusercontent.com/team-girigiri/library/master/${this.group}/readme.md`;
     let get = this.http.get(url, { responseType: 'text' });
     get.subscribe(this.getProgramCommentsSuccess, this.error);
   }
